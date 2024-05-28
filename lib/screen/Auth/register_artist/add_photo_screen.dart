@@ -37,7 +37,22 @@ class AddPhotoScreen extends StatelessWidget {
             Center(
               child: Image.asset("assets/images/profile/profile.png"),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height / 1.8.h),
+            SizedBox(height: 20),
+            Text(
+              textAlign: TextAlign.center,
+              "Ryan Bara",
+              style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
+            ),
+            SizedBox(height: 20),
+            Text(
+              textAlign: TextAlign.center,
+              "New York , USA",
+              style: TextStyle(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w200,
+                  color: Color(0xff797979)),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height / 2.4.h),
             GestureDetector(
               onTap: () => Navigator.push(
                 context,

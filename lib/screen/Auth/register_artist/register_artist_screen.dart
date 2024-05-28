@@ -1,18 +1,20 @@
 import 'package:entatto_ui/screen/Auth/log_in_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../widget/widget_support.dart';
+import '../../widget/widget_support.dart';
+import 'location/location_screen.dart';
 
-class StudioSignUpScreen extends StatefulWidget {
-  const StudioSignUpScreen({Key? key}) : super(key: key);
+class ArtistSignUpScreen extends StatefulWidget {
+  const ArtistSignUpScreen({Key? key}) : super(key: key);
 
   @override
-  State<StudioSignUpScreen> createState() => _StudioSignUpScreenState();
+  State<ArtistSignUpScreen> createState() => _ArtistSignUpScreenState();
 }
 
-class _StudioSignUpScreenState extends State<StudioSignUpScreen> {
+class _ArtistSignUpScreenState extends State<ArtistSignUpScreen> {
   bool isIconPressed = true;
   bool isPasswordVisible1 = false;
   bool isPasswordVisible2 = false;
@@ -35,12 +37,15 @@ class _StudioSignUpScreenState extends State<StudioSignUpScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back_ios_new,
-          color: Color(0xff1849D6),
+        leading: InkWell(
+          onTap: () => Navigator.pop(context),
+          child: Icon(
+            Icons.arrow_back_ios_new,
+            color: Color(0xff1849D6),
+          ),
         ),
         title: Text(
-          "Login",
+          "Artist",
           textAlign: TextAlign.center,
         ),
         backgroundColor: Colors.transparent,
@@ -54,51 +59,57 @@ class _StudioSignUpScreenState extends State<StudioSignUpScreen> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.w),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Welcome",
-                    textAlign: TextAlign.center,
-                    style: AppWidget.headerTextStyle(),
-                  ),
-                  SizedBox(height: 20.h),
-                  Text(
-                    "Sign Up to Edu Corner",
-                    textAlign: TextAlign.center,
-                    style: AppWidget.normalTextStyle(),
-                  ),
-                  SizedBox(height: 20.h),
+                  Text("Your name"),
+                  SizedBox(height: 10.h),
                   TextFormField(
                     controller: nameController,
                     validator: (value) => value == null || value.isEmpty
                         ? '\u274C Please enter your name'
                         : null,
                     decoration: InputDecoration(
+                      focusColor: Color(0xffE8DFB),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(
+                            (0xff1849D6),
+                          ),
+                        ),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(
+                            (0xffDEDEDE),
+                          ),
+                        ),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(
+                            (0xff797979),
+                          ),
+                        ),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(color: Color((0xffDEDEDE))),
                       ),
                       fillColor: Color.fromRGBO(64, 123, 255, 0.03),
                       filled: true,
-                      hintText: "Name",
+                      hintText: "Input your first name",
                       hintStyle: TextStyle(color: Color(0xff858383)),
                       suffixIcon: Icon(Icons.person),
                       border: InputBorder.none,
                     ),
                     style: TextStyle(color: Colors.black),
                   ),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 10.h),
+                  Text("Email address"),
+                  SizedBox(height: 10.h),
                   TextFormField(
                     controller: emailController,
                     validator: (value) => value == null || value.isEmpty
@@ -108,32 +119,47 @@ class _StudioSignUpScreenState extends State<StudioSignUpScreen> {
                             ? '\u274C Please enter a valid email address'
                             : null,
                     decoration: InputDecoration(
+                      focusColor: Color(0xffE8DFB),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(
+                            (0xff1849D6),
+                          ),
+                        ),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(
+                            (0xffDEDEDE),
+                          ),
+                        ),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(
+                            (0xff797979),
+                          ),
+                        ),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(color: Color((0xffDEDEDE))),
                       ),
                       fillColor: Color.fromRGBO(64, 123, 255, 0.03),
                       filled: true,
-                      hintText: "Email",
+                      hintText: "Input your email",
                       hintStyle: TextStyle(color: Color(0xff858383)),
                       suffixIcon: Icon(FontAwesomeIcons.envelope),
                       border: InputBorder.none,
                     ),
                     style: TextStyle(color: Colors.black),
                   ),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 10.h),
+                  Text("Password"),
+                  SizedBox(height: 10.h),
                   TextFormField(
                     validator: (value) => value == null || value.isEmpty
                         ? "\u274C Enter your password"
@@ -143,25 +169,38 @@ class _StudioSignUpScreenState extends State<StudioSignUpScreen> {
                     controller: passwordController,
                     obscureText: !isPasswordVisible1,
                     decoration: InputDecoration(
+                      focusColor: Color(0xffE8DFB),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(
+                            (0xff1849D6),
+                          ),
+                        ),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(
+                            (0xffDEDEDE),
+                          ),
+                        ),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(
+                            (0xff797979),
+                          ),
+                        ),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(color: Color((0xffDEDEDE))),
                       ),
                       fillColor: Color.fromRGBO(64, 123, 255, 0.03),
                       filled: true,
-                      hintText: "Password",
+                      hintText: "Input your password",
                       hintStyle: TextStyle(color: Color(0xff858383)),
                       suffixIcon: GestureDetector(
                         onTap: () => setState(() {
@@ -175,7 +214,9 @@ class _StudioSignUpScreenState extends State<StudioSignUpScreen> {
                     ),
                     style: TextStyle(color: Colors.black),
                   ),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 10.h),
+                  Text("Confirm Password"),
+                  SizedBox(height: 10.h),
                   TextFormField(
                     validator: (value) => value != passwordController.text
                         ? "\u274C Enter password does not match"
@@ -183,25 +224,38 @@ class _StudioSignUpScreenState extends State<StudioSignUpScreen> {
                     controller: confirmPasswordController,
                     obscureText: !isPasswordVisible2,
                     decoration: InputDecoration(
+                      focusColor: Color(0xffE8DFB),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(
+                            (0xff1849D6),
+                          ),
+                        ),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(
+                            (0xffDEDEDE),
+                          ),
+                        ),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: Color((0xffDEDEDE))),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(
+                            (0xff797979),
+                          ),
+                        ),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(color: Color((0xffDEDEDE))),
                       ),
                       fillColor: Color.fromRGBO(64, 123, 255, 0.03),
                       filled: true,
-                      hintText: "Confirm Password",
+                      hintText: "Input your confirm password",
                       hintStyle: TextStyle(color: Color(0xff858383)),
                       suffixIcon: GestureDetector(
                         onTap: () => setState(() {
@@ -217,15 +271,15 @@ class _StudioSignUpScreenState extends State<StudioSignUpScreen> {
                   ),
                   SizedBox(height: 20.h),
                   GestureDetector(
-                    // onTap: () {
-                    //   if (_formkey.currentState!.validate())
-                    //     Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //         builder: (context) => BottomNavBarPage(),
-                    //       ),
-                    //     );
-                    // },
+                    onTap: () {
+                      if (_formkey.currentState!.validate())
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LocationScreen(),
+                          ),
+                        );
+                    },
                     child: Container(
                       margin: EdgeInsets.only(left: 10, right: 10),
                       width: 320.w,
@@ -245,15 +299,29 @@ class _StudioSignUpScreenState extends State<StudioSignUpScreen> {
                       ),
                     ),
                   ),
-                  Divider(
-                    height: 40.h,
-                    color: Color(0xffD1D3D4),
-                    indent: 20.w,
-                    endIndent: 20.w,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          height: 40.h,
+                          color: Color(0xffD1D3D4),
+                          indent: 20.w,
+                          endIndent: 20.w,
+                        ),
+                      ),
+                      Text("Or Sign Up with"),
+                      Expanded(
+                        child: Divider(
+                          height: 40.h,
+                          color: Color(0xffD1D3D4),
+                          indent: 20.w,
+                          endIndent: 20.w,
+                        ),
+                      ),
+                    ],
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.w),
-                    width: 320.w,
+                    width: MediaQuery.of(context).size.width.w,
                     height: 54.h,
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
@@ -281,8 +349,7 @@ class _StudioSignUpScreenState extends State<StudioSignUpScreen> {
                   ),
                   SizedBox(height: 20.h),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.w),
-                    width: 320.w,
+                    width: MediaQuery.of(context).size.width.w,
                     height: 54.h,
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
@@ -304,8 +371,7 @@ class _StudioSignUpScreenState extends State<StudioSignUpScreen> {
                   ),
                   SizedBox(height: 20.h),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.w),
-                    width: 320.w,
+                    width: MediaQuery.of(context).size.width.w,
                     height: 54.h,
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(

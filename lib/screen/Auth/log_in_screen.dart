@@ -1,6 +1,6 @@
 import 'package:entatto_ui/screen/Auth/forgot_password_screen.dart';
-import 'package:entatto_ui/screen/Auth/register_artist_screen.dart';
-import 'package:entatto_ui/screen/Auth/register_studio_screen.dart';
+import 'package:entatto_ui/screen/Auth/register_artist/register_artist_screen.dart';
+import 'package:entatto_ui/screen/Auth/register_studio/register_studio_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -137,8 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: passwordController,
                   obscureText: !isPasswordVisible1,
                   decoration: InputDecoration(
-                    fillColor:
-                        _focusNode.hasFocus ? Color(0xffE8EDFB) : Colors.white,
+                    
                     focusColor: Color(0xffE8DFB),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),

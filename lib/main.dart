@@ -1,10 +1,13 @@
 import 'package:entatto_ui/screen/Auth/forgot_password_screen.dart';
 import 'package:entatto_ui/screen/Auth/log_in_screen.dart';
+import 'package:entatto_ui/screen/Auth/register_studio/social_media_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'screen/Auth/forgot_password_successful_screen.dart';
+import 'screen/Auth/register_artist/location/location_screen.dart';
+import 'screen/Auth/register_studio/register_studio_screen.dart';
 import 'screen/splash_screen/splash_screen.dart';
 
 void main() {
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: LoginScreen(),
+        home: SplashScreen(),
       ),
     );
   }

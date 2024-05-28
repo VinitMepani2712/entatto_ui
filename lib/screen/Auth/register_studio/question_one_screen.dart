@@ -1,4 +1,6 @@
+import 'package:entatto_ui/screen/Auth/register_studio/question_two_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class QuestionOneScreen extends StatefulWidget {
   const QuestionOneScreen({super.key});
@@ -51,6 +53,32 @@ class _QuestionOneScreenState extends State<QuestionOneScreen> {
                 },
               ),
             ),
+            GestureDetector(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => QuestionTwoScreen()),
+              ),
+              child: Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(left: 10.w, right: 10.w),
+                width: MediaQuery.of(context).size.width / 0.5.w,
+                height: 54.h,
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xff1848D6),
+                  border: Border.all(color: const Color(0xffDEDEDE)),
+                ),
+                child: Text(
+                  'Continue',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          
           ],
         ),
       ),
